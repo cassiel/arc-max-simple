@@ -10,6 +10,7 @@ function Bank() {
         this.values.push(0);  // MIDI control value, 0..127 incl.
     }
 }
+Bank.local = 1;
 
 function BankSet() {
     this.banks = [ ];
@@ -17,6 +18,7 @@ function BankSet() {
         this.banks.push(new Bank());
     }
 }
+BankSet.local = 1;
 
 var STATE = {
     dict: new Dict("X"),
@@ -27,10 +29,12 @@ var STATE = {
 function chanOfBank(bankNum) {
     return bankNum + 1;         // 1..16.
 }
+chanOfBank.local = 1;
 
 function ctrlOfRing(ringNum) {
     return 20 + ringNum;
 }
+ctrlOfRing.local = 1;
 
 /*  Output message to light LEDs according to MIDI value.
     A little tricky due to the range parameters (which are inclusive but
@@ -54,6 +58,7 @@ function ledsFromMIDIValue(ringIndex, midiValue) {
         outlet(0, "arc", PREFIX + "/ring/range", ringIndex, topLED + 1, LEDS - 1, 0);
     }
 }
+ledsFromMIDIValue.local = 1;
 
 /*  Delta value from ring. Nudge and store the MIDI value,
     output for MIDI message, refresh LED. */
@@ -65,15 +70,21 @@ function delta(ring, d) {
     bank.values[ring] = newVal;
 
     // Outlet ctrl message in Max order (val, ctrl. chan):
-    outlet(0, "ctrl", newVal, ctrlOfRing(ring), chanOfBank(STATE.currentBank));
+    outlet(0, "display", chanOfBank(STATE.currentBank), "ctrl", newVal, ctrlOfRing(ring));
 
     ledsFromMIDIValue(ring, newVal);
-    displayInDict();
 }
+
+function highlight(bankNum) {
+    var chan = chanOfBank(bankNum);
+    outlet(0, "display", "ALL", "highlight", 0);
+    outlet(0, "display", chan, "highlight", 1);
+}
+highlight.local = 1;
 
 /*  Keyboard nudge for bank select. Change bank, update all rings. */
 
-function nudge_bank(d) {
+function nudge_bank_by(d) {
     var bankNum = STATE.currentBank;
     bankNum = Math.min(BANKS - 1, Math.max(0, bankNum + d));
     STATE.currentBank = bankNum;
@@ -81,14 +92,26 @@ function nudge_bank(d) {
     var bank = STATE.bankSet.banks[bankNum];
     post("bankNum: " + bankNum + " bank: " + bank + "\n");
 
+    highlight(bankNum);
+
     for (var i = 0; i < RINGS; i++) {
         ledsFromMIDIValue(i, bank.values[i]);
     }
 }
 
-function displayInDict() {
-    STATE.dict.parse(JSON.stringify(STATE));
+function nudge_bank_to(b) {     // b: 1..16
+    b = b - 1;
+    var bankNum = STATE.currentBank;
+    b = Math.min(BANKS - 1, Math.max(0, b));
+    STATE.currentBank = b;
+
+    var bank = STATE.bankSet.banks[b];
+
+    highlight(b);
+
+    for (var i = 0; i < RINGS; i++) {
+        ledsFromMIDIValue(i, bank.values[i]);
+    }
 }
 
-displayInDict();
 post(Date() + "\n");
