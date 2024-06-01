@@ -2,8 +2,8 @@
 	"name" : "arc-max-simple",
 	"version" : 1,
 	"creationdate" : 3799768231,
-	"modificationdate" : 3799844971,
-	"viewrect" : [ 680.0, 243.0, 405.0, 519.0 ],
+	"modificationdate" : 3800100170,
+	"viewrect" : [ 437.0, 509.0, 405.0, 519.0 ],
 	"autoorganize" : 1,
 	"hideprojectwindow" : 0,
 	"showdependencies" : 1,
@@ -17,6 +17,11 @@
 			}
 ,
 			"ams.ShowBank.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"ams.RingDriver.maxpat" : 			{
 				"kind" : "patcher",
 				"local" : 1
 			}
