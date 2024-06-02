@@ -10,6 +10,12 @@ function now() {
 now.local = 1;
 
 var PUNCH_DELAY = 1000;         // Time before punching out.
+var FLASH_TIME = 300;           /* There will be some value interaction here: when a knob is being
+                                   turned we need the flash calculation to turn the LEDs on. */
+
+var LEVEL_FULL = 15;
+var LEVEL_DIM = 3;
+var LEVEL_OFF = 0;
 
 function Bank() {
     this.values = [ ];
@@ -54,16 +60,8 @@ ctrlOfRing.local = 1;
     0 -> all off except one LED, half-bright.
     N -> range 0 to floor(N / 2) [ 1 -> 0, 2 -> 1, 3 -> 1, ... 127 -> 63]. */
 
-function ledsFromMIDIValue(ringIndex, midiValue, punched) {
-    var level;
-
-    if (punched) {
-        level = 15;
-    } else {
-        level = 3;
-    }
-
-    if (midiValue == 0) {
+function ledsFromMIDIValue(ringIndex, midiValue, level) {
+        if (midiValue == 0) {
         // All off:
         //outlet(0, "arc", PREFIX + "/ring/all", ringIndex, 0);
         outlet(0, "arc", PREFIX + "/ring/range", ringIndex, 1, 63, 0);
@@ -88,11 +86,13 @@ function out_bank(bankNum, force) {
         if (out == 0 && force == false) {         // Nothing to do, unless we force an update:
 
         } else if (out > now()) {   // Still punched in.
-            //post("STILL IN:  " + bankNum + "/" + i + "\n");
-            ledsFromMIDIValue(i, bank.values[i], true);
+            /* TODO Not ideal: this outputs every call. So let's exploit that
+               and animate it a bit. */
+            var timeLeft = out - now();
+            var on = (timeLeft % FLASH_TIME) < (FLASH_TIME / 2);
+            ledsFromMIDIValue(i, bank.values[i], (on ? LEVEL_FULL : LEVEL_OFF));
         } else {                // Punch out!
-            //post("PUNCH OUT: " + bankNum + "/" + i + "\n");
-            ledsFromMIDIValue(i, bank.values[i], false);
+            ledsFromMIDIValue(i, bank.values[i], LEVEL_DIM);
             bank.punchOutTimestamps[i] = 0;
         }
     }
@@ -114,8 +114,6 @@ function delta(ring, d) {
 
     // Slight overkill, but we manage punch-out here:
     out_bank(STATE.currentBank, true);
-
-    //ledsFromMIDIValue(ring, newVal, true);
 }
 
 function highlight(bankNum) {
