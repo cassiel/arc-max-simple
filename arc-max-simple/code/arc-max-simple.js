@@ -4,10 +4,21 @@ var LEDS = 64;
 
 var PREFIX = "/arc_4";
 
+function now() {
+    return new Date().getTime();
+}
+now.local = 1;
+
+var PUNCH_DELAY = 1000;         // Time before punching out.
+
 function Bank() {
     this.values = [ ];
+    this.punchOutTimestamps = [ ];
     for (var i = 0; i < RINGS; i++) {
         this.values.push(0);  // MIDI control value, 0..127 incl.
+        this.punchOutTimestamps.push(0);
+        /* Use 0 here to mark as inactive (punched out); otherwise
+           we can't sense the transition. */
     }
 }
 Bank.local = 1;
@@ -43,7 +54,15 @@ ctrlOfRing.local = 1;
     0 -> all off except one LED, half-bright.
     N -> range 0 to floor(N / 2) [ 1 -> 0, 2 -> 1, 3 -> 1, ... 127 -> 63]. */
 
-function ledsFromMIDIValue(ringIndex, midiValue) {
+function ledsFromMIDIValue(ringIndex, midiValue, punched) {
+    var level;
+
+    if (punched) {
+        level = 15;
+    } else {
+        level = 3;
+    }
+
     if (midiValue == 0) {
         // All off:
         //outlet(0, "arc", PREFIX + "/ring/all", ringIndex, 0);
@@ -51,14 +70,34 @@ function ledsFromMIDIValue(ringIndex, midiValue) {
         outlet(0, "arc", PREFIX + "/ring/range", ringIndex, 0, 0, 8);
     } else if (midiValue >= 126) {
         // Tricky edge cases...
-        outlet(0, "arc", PREFIX + "/ring/all", ringIndex, 15);
+        outlet(0, "arc", PREFIX + "/ring/all", ringIndex, level);
     } else {
         var topLED = Math.floor(midiValue / 2);
-        outlet(0, "arc", PREFIX + "/ring/range", ringIndex, 0, topLED, 15);
+        outlet(0, "arc", PREFIX + "/ring/range", ringIndex, 0, topLED, level);
         outlet(0, "arc", PREFIX + "/ring/range", ringIndex, topLED + 1, LEDS - 1, 0);
     }
 }
 ledsFromMIDIValue.local = 1;
+
+function out_bank(bankNum, force) {
+    var bank = STATE.bankSet.banks[bankNum];
+
+    for (var i = 0; i < RINGS; i++) {
+        out = bank.punchOutTimestamps[i];
+
+        if (out == 0 && force == false) {         // Nothing to do, unless we force an update:
+
+        } else if (out > now()) {   // Still punched in.
+            //post("STILL IN:  " + bankNum + "/" + i + "\n");
+            ledsFromMIDIValue(i, bank.values[i], true);
+        } else {                // Punch out!
+            //post("PUNCH OUT: " + bankNum + "/" + i + "\n");
+            ledsFromMIDIValue(i, bank.values[i], false);
+            bank.punchOutTimestamps[i] = 0;
+        }
+    }
+}
+out_bank.local = 1;
 
 /*  Delta value from ring. Nudge and store the MIDI value,
     output for MIDI message, refresh LED. */
@@ -68,11 +107,15 @@ function delta(ring, d) {
     var oldVal = bank.values[ring];
     var newVal = Math.min(127, Math.max(0, oldVal + d));
     bank.values[ring] = newVal;
+    bank.punchOutTimestamps[ring] = now() + PUNCH_DELAY;
 
     // Outlet ctrl message in Max order (val, ctrl. chan):
     outlet(0, "display", chanOfBank(STATE.currentBank), "ctrl", newVal, ctrlOfRing(ring));
 
-    ledsFromMIDIValue(ring, newVal);
+    // Slight overkill, but we manage punch-out here:
+    out_bank(STATE.currentBank, true);
+
+    //ledsFromMIDIValue(ring, newVal, true);
 }
 
 function highlight(bankNum) {
@@ -81,8 +124,6 @@ function highlight(bankNum) {
     outlet(0, "display", chan, "highlight", 1);
 }
 highlight.local = 1;
-
-/*  Keyboard nudge for bank select. Change bank, update all rings. */
 
 function nudge_bank_by(d) {
     var bankNum = STATE.currentBank;
@@ -93,25 +134,43 @@ function nudge_bank_by(d) {
     post("bankNum: " + bankNum + " bank: " + bank + "\n");
 
     highlight(bankNum);
-
-    for (var i = 0; i < RINGS; i++) {
-        ledsFromMIDIValue(i, bank.values[i]);
-    }
+    out_bank(bankNum, true);
 }
 
 function nudge_bank_to(b) {     // b: 1..16
     b = b - 1;
-    var bankNum = STATE.currentBank;
     b = Math.min(BANKS - 1, Math.max(0, b));
+
+    var bankNum = STATE.currentBank;
     STATE.currentBank = b;
 
     var bank = STATE.bankSet.banks[b];
 
     highlight(b);
+    out_bank(b, true);
+}
 
-    for (var i = 0; i < RINGS; i++) {
-        ledsFromMIDIValue(i, bank.values[i]);
+/* Ticks: 0..479 inclusive (per quarter note?), though perhaps
+   at a slow rate which omits some values.
+   NOTE: not usable - where's SHADO when you need it? */
+
+function transport_units(n) {
+    var ledsRotation = Math.min(Math.round(n / 30), 15);      // Not perfect: no Math.trunc?
+    var ringIndex = 0;
+
+    ledsFromMIDIValue(ringIndex, STATE.bankSet.banks[STATE.currentBank].values[0], false);
+
+    for (var pos = 0; pos < 4; pos++) {
+        var ledIndex = pos * 16 + ledsRotation;
+        outlet(0, "arc", PREFIX + "/ring/range", ringIndex, ledIndex, ledIndex, 7);
     }
+}
+
+/* Generic heartbeat ping for any kind of animation. For actual timings,
+   use Javascript date. */
+
+function ping() {
+    out_bank(STATE.currentBank, false);
 }
 
 post(Date() + "\n");
