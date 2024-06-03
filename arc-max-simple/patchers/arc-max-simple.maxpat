@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 480.0, 149.0, 534.0, 887.0 ],
+		"rect" : [ 456.0, 123.0, 529.0, 907.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -40,6 +40,59 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"angle" : 270.0,
+					"bgcolor" : [ 0.376471, 0.384314, 0.4, 0.0 ],
+					"border" : 2,
+					"bordercolor" : [ 0.870588, 0.415686, 0.062745, 1.0 ],
+					"id" : "obj-34",
+					"maxclass" : "panel",
+					"mode" : 0,
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 705.0, 730.0, 128.0, 128.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 270.0, 800.0, 180.0, 70.0 ],
+					"proportion" : 0.39,
+					"rounded" : 0
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bgcolor" : [ 0.0, 0.078431, 0.321569, 0.0 ],
+					"fontname" : "Microgramma D",
+					"fontsize" : 24.0,
+					"id" : "obj-32",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 675.0, 355.0, 401.0, 38.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 285.0, 830.0, 150.0, 38.0 ],
+					"text" : "CASSIEL",
+					"textcolor" : [ 0.870588, 0.415686, 0.062745, 1.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bgcolor" : [ 0.0, 0.078431, 0.321569, 0.0 ],
+					"fontname" : "MicrogrammaDMedExt",
+					"fontsize" : 24.0,
+					"id" : "obj-26",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 660.0, 340.0, 363.0, 35.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 285.0, 805.0, 150.0, 35.0 ],
+					"text" : "PROJECT",
+					"textcolor" : [ 0.870588, 0.415686, 0.062745, 1.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-31",
 					"maxclass" : "button",
 					"numinlets" : 1,
@@ -58,8 +111,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 525.0, 280.0, 195.0, 38.0 ],
-					"text" : "arc /arc_4/ring/range 2 0 0 8"
+					"patching_rect" : [ 525.0, 280.0, 196.0, 38.0 ],
+					"text" : "arc /arc_4/ring/range 3 0 0 8"
 				}
 
 			}
@@ -94,7 +147,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 975.0, 675.0, 152.0, 50.0 ],
+					"patching_rect" : [ 975.0, 675.0, 160.0, 50.0 ],
 					"text" : "Abandoned: too hard to implement without shado."
 				}
 
@@ -1188,7 +1241,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 1095.0, 505.0, 150.0, 21.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 285.0, 805.0, 210.0, 21.0 ],
+					"presentation_rect" : [ 240.0, 740.0, 210.0, 21.0 ],
 					"text" : "BUTTONS OUT",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
@@ -1205,7 +1258,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 1080.0, 535.0, 165.0, 23.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 285.0, 830.0, 210.0, 23.0 ]
+					"presentation_rect" : [ 240.0, 765.0, 210.0, 23.0 ]
 				}
 
 			}
