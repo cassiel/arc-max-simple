@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 456.0, 123.0, 529.0, 907.0 ],
+		"rect" : [ 54.0, 111.0, 525.0, 885.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -41,17 +41,18 @@
 		"boxes" : [ 			{
 				"box" : 				{
 					"angle" : 270.0,
-					"bgcolor" : [ 0.376471, 0.384314, 0.4, 0.0 ],
-					"border" : 2,
-					"bordercolor" : [ 0.870588, 0.415686, 0.062745, 1.0 ],
-					"id" : "obj-34",
+					"border" : 3,
+					"bordercolor" : [ 0.694117647058824, 0.694117647058824, 0.694117647058824, 1.0 ],
+					"grad1" : [ 0.376471, 0.384314, 0.4, 0.0 ],
+					"grad2" : [ 0.290196, 0.309804, 0.301961, 1.0 ],
+					"id" : "obj-24",
 					"maxclass" : "panel",
-					"mode" : 0,
+					"mode" : 1,
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 705.0, 730.0, 128.0, 128.0 ],
+					"patching_rect" : [ 585.0, 455.0, 128.0, 128.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 270.0, 800.0, 180.0, 70.0 ],
+					"presentation_rect" : [ 270.0, 35.0, 4.0, 660.0 ],
 					"proportion" : 0.39,
 					"rounded" : 0
 				}
@@ -256,7 +257,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 683.0, 475.0, 971.0, 798.0 ],
+						"rect" : [ 289.0, 178.0, 971.0, 798.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -285,6 +286,113 @@
 						"subpatcher_template" : "cassiel",
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-43",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "int" ],
+									"patching_rect" : [ 750.0, 485.0, 52.0, 20.0 ],
+									"text" : "== 127"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-36",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 840.0, 620.0, 150.0, 18.0 ],
+									"text" : "Underside LEDs"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-30",
+									"maxclass" : "newobj",
+									"numinlets" : 3,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 675.0, 740.0, 81.0, 20.0 ],
+									"text" : "pack 0 0 0"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-28",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 3,
+									"outlettype" : [ "int", "int", "int" ],
+									"patching_rect" : [ 750.0, 585.0, 59.0, 20.0 ],
+									"text" : "t i i i"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-22",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 825.0, 690.0, 30.0, 20.0 ],
+									"text" : "127"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-20",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 780.0, 690.0, 29.5, 20.0 ],
+									"text" : "18"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-16",
+									"maxclass" : "newobj",
+									"numinlets" : 3,
+									"numoutlets" : 3,
+									"outlettype" : [ "bang", "bang", "" ],
+									"patching_rect" : [ 780.0, 650.0, 59.0, 20.0 ],
+									"text" : "sel 0 1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-15",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 870.0, 690.0, 29.5, 20.0 ],
+									"text" : "4"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-11",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 660.0, 690.0, 109.0, 20.0 ],
+									"text" : "16, 17, 18, 19"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-61",
 									"maxclass" : "newobj",
@@ -627,7 +735,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 3,
 									"numoutlets" : 0,
-									"patching_rect" : [ 330.0, 685.0, 59.0, 20.0 ],
+									"patching_rect" : [ 360.0, 735.0, 59.0, 20.0 ],
 									"text" : "noteout"
 								}
 
@@ -639,7 +747,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 690.0, 525.0, 150.0, 30.0 ],
+									"patching_rect" : [ 780.0, 525.0, 150.0, 30.0 ],
 									"text" : "Current (if any) lit button"
 								}
 
@@ -817,6 +925,13 @@
  ],
 						"lines" : [ 							{
 								"patchline" : 								{
+									"destination" : [ "obj-30", 0 ],
+									"source" : [ "obj-11", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-60", 0 ],
 									"order" : 1,
 									"source" : [ "obj-12", 0 ]
@@ -849,6 +964,15 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-25", 1 ],
+									"order" : 1,
+									"source" : [ "obj-14", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-43", 0 ],
+									"order" : 0,
 									"source" : [ "obj-14", 1 ]
 								}
 
@@ -863,6 +987,27 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-30", 2 ],
+									"source" : [ "obj-15", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-20", 0 ],
+									"source" : [ "obj-16", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-22", 0 ],
+									"source" : [ "obj-16", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-8", 0 ],
 									"source" : [ "obj-18", 0 ]
 								}
@@ -872,6 +1017,20 @@
 								"patchline" : 								{
 									"destination" : [ "obj-8", 0 ],
 									"source" : [ "obj-2", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-30", 1 ],
+									"source" : [ "obj-20", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-30", 1 ],
+									"source" : [ "obj-22", 0 ]
 								}
 
 							}
@@ -912,6 +1071,27 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-11", 0 ],
+									"source" : [ "obj-28", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-15", 0 ],
+									"source" : [ "obj-28", 2 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-16", 0 ],
+									"source" : [ "obj-28", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-27", 0 ],
 									"source" : [ "obj-29", 0 ]
 								}
@@ -921,6 +1101,13 @@
 								"patchline" : 								{
 									"destination" : [ "obj-34", 0 ],
 									"source" : [ "obj-3", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-8", 0 ],
+									"source" : [ "obj-30", 0 ]
 								}
 
 							}
@@ -1056,6 +1243,13 @@
 								"patchline" : 								{
 									"destination" : [ "obj-44", 0 ],
 									"source" : [ "obj-42", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-28", 0 ],
+									"source" : [ "obj-43", 0 ]
 								}
 
 							}
@@ -1250,7 +1444,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-12",
-					"items" : [ "AU DLS Synth 1", ",", "IAC Driver IAC 1", ",", "IAC Driver IAC CLOCK", ",", "USB MIDI Device Port 1", ",", "USB MIDI Device Port 2", ",", "Arturia KeyStep 32", ",", "Midi Fighter Spectra", ",", "from Max 1", ",", "from Max 2" ],
+					"items" : [ "AU DLS Synth 1", ",", "IAC Driver IAC 1", ",", "IAC Driver IAC CLOCK", ",", "USB MIDI Device Port 1", ",", "USB MIDI Device Port 2", ",", "Midi Fighter Spectra", ",", "from Max 1", ",", "from Max 2" ],
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
@@ -1295,7 +1489,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 1050.0, 250.0, 194.0, 26.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 315.0, 35.0, 60.0, 26.0 ],
+					"presentation_rect" : [ 345.0, 35.0, 60.0, 26.0 ],
 					"text" : "DISC",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
@@ -1310,7 +1504,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 1050.0, 205.0, 194.0, 26.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 255.0, 35.0, 60.0, 26.0 ],
+					"presentation_rect" : [ 285.0, 35.0, 60.0, 26.0 ],
 					"text" : "RIFT",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
@@ -1385,7 +1579,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 1050.0, 205.0, 194.0, 26.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 315.0, 380.0, 60.0, 26.0 ],
+					"presentation_rect" : [ 345.0, 380.0, 60.0, 26.0 ],
 					"text" : "DISC",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
@@ -1400,7 +1594,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 1035.0, 190.0, 194.0, 26.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 255.0, 380.0, 60.0, 26.0 ],
+					"presentation_rect" : [ 285.0, 380.0, 60.0, 26.0 ],
 					"text" : "RIFT",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
@@ -1475,7 +1669,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 1005.0, 160.0, 194.0, 26.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 375.0, 635.0, 116.0, 26.0 ],
+					"presentation_rect" : [ 405.0, 635.0, 105.0, 26.0 ],
 					"text" : "LEVEL",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
@@ -1490,7 +1684,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 990.0, 145.0, 194.0, 26.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 375.0, 570.0, 116.0, 26.0 ],
+					"presentation_rect" : [ 405.0, 570.0, 105.0, 26.0 ],
 					"text" : "DISCORD",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
@@ -1505,7 +1699,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 975.0, 130.0, 194.0, 26.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 375.0, 505.0, 116.0, 26.0 ],
+					"presentation_rect" : [ 405.0, 505.0, 105.0, 26.0 ],
 					"text" : "RIFT",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
@@ -1520,7 +1714,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 960.0, 115.0, 194.0, 26.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 375.0, 440.0, 116.0, 26.0 ],
+					"presentation_rect" : [ 405.0, 440.0, 105.0, 26.0 ],
 					"text" : "SHAPERBOX",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
@@ -1535,7 +1729,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 945.0, 100.0, 194.0, 26.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 375.0, 290.0, 116.0, 26.0 ],
+					"presentation_rect" : [ 405.0, 290.0, 105.0, 26.0 ],
 					"text" : "ENSO RR",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
@@ -1550,7 +1744,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 930.0, 85.0, 194.0, 26.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 375.0, 225.0, 116.0, 26.0 ],
+					"presentation_rect" : [ 405.0, 225.0, 105.0, 26.0 ],
 					"text" : "ENSO FF",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
@@ -1566,7 +1760,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 915.0, 70.0, 194.0, 26.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 375.0, 160.0, 116.0, 26.0 ],
+					"presentation_rect" : [ 405.0, 160.0, 105.0, 26.0 ],
 					"text" : "PARAM 2",
 					"textcolor" : [ 0.960784, 0.827451, 0.156863, 1.0 ]
 				}
@@ -1582,7 +1776,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 900.0, 55.0, 194.0, 26.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 375.0, 95.0, 116.0, 26.0 ],
+					"presentation_rect" : [ 405.0, 95.0, 105.0, 26.0 ],
 					"text" : "PARAM 1",
 					"textcolor" : [ 0.960784, 0.827451, 0.156863, 1.0 ]
 				}
@@ -1607,7 +1801,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 705.0, 420.0, 60.0, 284.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 315.0, 65.0, 60.0, 285.0 ],
+					"presentation_rect" : [ 345.0, 65.0, 60.0, 285.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -1631,7 +1825,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 645.0, 420.0, 60.0, 284.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 255.0, 65.0, 60.0, 285.0 ],
+					"presentation_rect" : [ 285.0, 65.0, 60.0, 285.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -1717,7 +1911,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-19",
-					"items" : [ "IAC Driver IAC 1", ",", "IAC Driver IAC CLOCK", ",", "USB MIDI Device Port 1", ",", "USB MIDI Device Port 2", ",", "Arturia KeyStep 32", ",", "Midi Fighter Spectra", ",", "to Max 1", ",", "to Max 2" ],
+					"items" : [ "IAC Driver IAC 1", ",", "IAC Driver IAC CLOCK", ",", "USB MIDI Device Port 1", ",", "USB MIDI Device Port 2", ",", "Midi Fighter Spectra", ",", "to Max 1", ",", "to Max 2" ],
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
@@ -1832,7 +2026,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 330.0, 420.0, 60.0, 284.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 315.0, 410.0, 60.0, 285.0 ],
+					"presentation_rect" : [ 345.0, 410.0, 60.0, 285.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -1856,7 +2050,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 270.0, 420.0, 60.0, 284.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 255.0, 410.0, 60.0, 285.0 ],
+					"presentation_rect" : [ 285.0, 410.0, 60.0, 285.0 ],
 					"viewvisibility" : 1
 				}
 
@@ -1936,7 +2130,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-5",
-					"items" : [ "AU DLS Synth 1", ",", "IAC Driver IAC 1", ",", "IAC Driver IAC CLOCK", ",", "USB MIDI Device Port 1", ",", "USB MIDI Device Port 2", ",", "Arturia KeyStep 32", ",", "Midi Fighter Spectra", ",", "from Max 1", ",", "from Max 2" ],
+					"items" : [ "AU DLS Synth 1", ",", "IAC Driver IAC 1", ",", "IAC Driver IAC CLOCK", ",", "USB MIDI Device Port 1", ",", "USB MIDI Device Port 2", ",", "Midi Fighter Spectra", ",", "from Max 1", ",", "from Max 2" ],
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
@@ -2083,6 +2277,25 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 15.0, 705.0, 195.0, 25.0 ],
 					"viewvisibility" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"angle" : 270.0,
+					"bgcolor" : [ 0.003921568627451, 0.003921568627451, 0.003921568627451, 0.25 ],
+					"border" : 2,
+					"bordercolor" : [ 0.870588, 0.415686, 0.062745, 1.0 ],
+					"id" : "obj-34",
+					"maxclass" : "panel",
+					"mode" : 0,
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 840.0, 630.0, 128.0, 128.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 270.0, 800.0, 180.0, 70.0 ],
+					"proportion" : 0.39,
+					"rounded" : 0
 				}
 
 			}
