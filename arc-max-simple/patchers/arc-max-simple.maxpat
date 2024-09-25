@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 6,
-			"revision" : 3,
+			"revision" : 4,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 54.0, 111.0, 525.0, 885.0 ],
+		"rect" : [ 79.0, 107.0, 542.0, 886.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -113,7 +113,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 525.0, 280.0, 196.0, 38.0 ],
-					"text" : "arc /arc_4/ring/range 3 0 0 8"
+					"text" : "arc /arc_4/ring/range 3 10 63 0"
 				}
 
 			}
@@ -251,7 +251,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 6,
-							"revision" : 3,
+							"revision" : 4,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1669,8 +1669,8 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 1005.0, 160.0, 194.0, 26.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 405.0, 635.0, 105.0, 26.0 ],
-					"text" : "LEVEL",
+					"presentation_rect" : [ 405.0, 635.0, 120.0, 26.0 ],
+					"text" : "→ LEVEL",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
 
@@ -1684,8 +1684,8 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 990.0, 145.0, 194.0, 26.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 405.0, 570.0, 105.0, 26.0 ],
-					"text" : "DISCORD",
+					"presentation_rect" : [ 405.0, 570.0, 120.0, 26.0 ],
+					"text" : "→ DISCORD",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
 
@@ -1699,8 +1699,8 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 975.0, 130.0, 194.0, 26.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 405.0, 505.0, 105.0, 26.0 ],
-					"text" : "RIFT",
+					"presentation_rect" : [ 405.0, 505.0, 120.0, 26.0 ],
+					"text" : "→ RIFT",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
 
@@ -1714,8 +1714,8 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 960.0, 115.0, 194.0, 26.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 405.0, 440.0, 105.0, 26.0 ],
-					"text" : "SHAPERBOX",
+					"presentation_rect" : [ 405.0, 440.0, 120.0, 26.0 ],
+					"text" : "→ SHAPERBOX",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
 
@@ -1729,8 +1729,8 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 945.0, 100.0, 194.0, 26.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 405.0, 290.0, 105.0, 26.0 ],
-					"text" : "ENSO RR",
+					"presentation_rect" : [ 405.0, 290.0, 120.0, 26.0 ],
+					"text" : "→ ENSO RR",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
 
@@ -1744,8 +1744,8 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 930.0, 85.0, 194.0, 26.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 405.0, 225.0, 105.0, 26.0 ],
-					"text" : "ENSO FF",
+					"presentation_rect" : [ 405.0, 225.0, 120.0, 26.0 ],
+					"text" : "→ ENSO FF",
 					"textcolor" : [ 1.0, 1.0, 1.0, 1.0 ]
 				}
 
@@ -1760,7 +1760,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 915.0, 70.0, 194.0, 26.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 405.0, 160.0, 105.0, 26.0 ],
+					"presentation_rect" : [ 405.0, 160.0, 120.0, 26.0 ],
 					"text" : "PARAM 2",
 					"textcolor" : [ 0.960784, 0.827451, 0.156863, 1.0 ]
 				}
@@ -1776,7 +1776,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 900.0, 55.0, 194.0, 26.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 405.0, 95.0, 105.0, 26.0 ],
+					"presentation_rect" : [ 405.0, 95.0, 120.0, 26.0 ],
 					"text" : "PARAM 1",
 					"textcolor" : [ 0.960784, 0.827451, 0.156863, 1.0 ]
 				}
